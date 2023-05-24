@@ -1,46 +1,56 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "empuxa/translation-manager",
+    "description": "A smart translation manager for Laravel.",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "marcoraddatz",
+        "empuxa",
+        "translation-manager",
+        "i18n"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/empuxa/translation-manager",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Marco Raddatz",
+            "email": "marco@empuxa.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "laravel/framework": "^9.0",
+        "spatie/laravel-package-tools": "^1.0"
     },
     "require-dev": {
-        :require_dev_testing,
-        :require_dev_codestyle,
-        "spatie/ray": "^1.28"
+        "orchestra/testbench": "^7.24",
+        "phpunit/phpunit": "^9.6",
+        "slevomat/coding-standard": "^8.8"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Empuxa\\TranslationManager\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Empuxa\\TranslationManager\\Tests\\": "tests"
         }
     },
     "scripts": {
-        :scripts_testing,
-        :scripts_codestyle
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            :plugins_testing,
             "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Empuxa\\TranslationManager\\ServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

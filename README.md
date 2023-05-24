@@ -1,42 +1,72 @@
-# :package_description
+# Laravel Translation Manager
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![Tests](https://img.shields.io/github/actions/workflow/status/:vendor_slug/:package_slug/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This package can be used as to scaffold a framework agnostic package. Follow these steps to get started:
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/empuxa/translation-manager.svg?style=flat-square)](https://packagist.org/packages/marcoraddatz/translation-manager)
+[![Tests](https://img.shields.io/github/actions/workflow/status/empuxa/translation-manager/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/marcoraddatz/laravel-translation-manager/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/empuxa/translation-manager.svg?style=flat-square)](https://packagist.org/packages/marcoraddatz/laravel-translation-manager)
 
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+![Banner](https://banners.beyondco.de/Translation%20Manager.png?theme=light&packageManager=composer+require&packageName=empuxa%2Ftranslation-manager&pattern=architect&style=style_1&description=&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 
-## Support us
+This package provides a web interface to manage your Laravel application translations.
+While the concept is heavily inspired by [barryvdh/laravel-translation-manager](https://github.com/barryvdh/laravel-translation-manager), this package is a complete rewrite with a different approach to provide a better non-developer user experience:
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+- there is a non-editable default language, to separate development from translation
+- it can export to sub-folders: for example, you can now have a `lang/en/dashboard/charts.php` file
+- all translation strings are on one page, that's based on Tailwind CSS
+- it has (some) tests 🫣
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+However, currently there are also some disadvantages:
+- it does only read and export PHP files, no JSON
+- since all strings are on one page, big projects might have performance issues
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+![Overview](docs/overview.png)
 
 ## Installation
 
+This package requires Laravel 9+.
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
+composer require empuxa/translation-manager
 ```
+
+Afterward, copy the vendor files:
+
+```bash
+php artisan vendor:publish --provider="Empuxa\TranslationManager\ServiceProvider"
+```
+
+Finally, run the migrations:
+
+```bash
+php artisan migrate
+```
+
+Don't forget to also update the config file `config/translation-manager.php` to your needs!
 
 ## Usage
+### Local Storage / Single Server Setup
+By default, the translation manager is available at `/translation-manager`. However, you can change the route in the config file. Before you can edit translations, you must also set up the output languages. The default language isn't editable to separate development and translation.
 
-```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+To push the translations into the database, you need to run the following command:
+
+```bash
+php artisan translation-manager:push-to-db
 ```
+
+It's now possible to edit any language string via the web interface and save them to the DB. If a language string already exists, it won't be overwritten. You can force that behavior by using the `--force` flag.
+
+Before you can use the translations in your application, you need to export them to PHP files that will get stored in the `lang` folder. You can do that by running the following command:
+
+```bash
+php artisan translation-manager:pull-from-db
+```
+
+### Cloud Storage / Multi Server Setup
+The best way to use the translation manager in a cloud setup is to run a single server instance, where the translators can edit the translations. However, you might also want to push the translations to other environments. That's where cloud storage comes into play. 
+
+By using the `translation-manager:push-to-storage` command, you can push any lang file to the storage disk defined in the config. With the `translation-manager:pull-from-storage` command, you can then pull the translations from the storage disk.
+
+At [Wunderlease](https://wunderlease.com), we've integrated the translation manager into our CI/CD pipeline. This way, we can push the translations to our staging and production environments.
 
 ## Testing
 
@@ -58,7 +88,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Marco Raddatz](https://github.com/marcoraddatz)
 - [All Contributors](../../contributors)
 
 ## License

@@ -9,5 +9,5 @@ return [
         'name' => 'Name',
     ],
     'last_update' => 'Last update',
-    'cta' => 'Update translations',
+    'cta'         => 'Update translations',
 ];

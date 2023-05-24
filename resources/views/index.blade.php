@@ -12,13 +12,13 @@
 <body class="bg-gray-light dark:bg-gray-800 antialiased">
 <main class="px-5 py-10 lg:p-10 w-full lg:h-auto relative flex flex-grow flex-wrap">
     <div class="flex items-center justify-between w-full mb-5 sm:mb-10 space-x-3">
-        <h1 class="text-2xl md:text-3xl 2xl:text-4xl font-bold 2xl:leading-tight break-words whitespace-normal">
+        <h1 class="text-2xl md:text-3xl 2xl:text-4xl font-bold 2xl:leading-tight break-words whitespace-normal text-gray-900 dark:text-white">
             {{ __('translation-manager::index.headline') }}
         </h1>
     </div>
 
     <div class="flex mb-5 sm:mb-10 space-x-3">
-        <span class="bg-orange-100 p-1">
+        <span class="bg-orange-100 dark:bg-orange-300 p-1">
             {{ __('translation-manager::index.legends.matches_default') }}
         </span>
     </div>
@@ -31,20 +31,20 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="card overflow-hidden">
-                        <table class="divide-y divide-light w-full text-left">
+                        <table class="divide-y divide-gray-300 dark:divide-gray-700 w-full text-left">
                             <thead class="bg-gray-50 dark:bg-gray-800">
                                 <tr>
-                                    <th class="table-th px-6 py-3 w-96">
+                                    <th class="table-th px-6 py-3 w-96 text-gray-900 dark:text-white">
                                         {{ __('translation-manager::index.table.name') }}
                                     </th>
                                     @foreach($locales as $locale)
-                                        <th class="table-th px-8 py-3 w-96">
+                                        <th class="table-th px-8 py-3 w-96 text-gray-900 dark:text-white">
                                             {{ $locale }}
                                         </th>
                                     @endforeach
                                 </tr>
                             </thead>
-                            <tbody class="bg-white dark:bg-transparent divide-y divide-light">
+                            <tbody class="bg-white dark:bg-transparent divide-y divide-gray-300 dark:divide-gray-700">
                                 @foreach ($translations as $translation)
                                     @php
                                         $defaultModel = $translation->first();
@@ -53,7 +53,7 @@
 
                                     @if (isset($file) && $file !== $defaultModel->file)
                                         <tr>
-                                            <td class="p-6 bg-gray-50 dark:bg-gray-900 text-default uppercase font-semibold"
+                                            <td class="p-6 bg-gray-50 dark:bg-gray-900 uppercase font-semibold text-gray-900 dark:text-white"
                                                 colspan="10">
                                                 {{ $defaultModel->file }}
                                             </td>
@@ -61,14 +61,14 @@
                                     @endif
 
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-default">
+                                        <td class="px-6 py-4 whitespace-nowrap text-gray-900 dark:text-white">
                                             {{ $defaultModel->path ?? '—' }}
                                         </td>
 
                                         @foreach($locales as $locale)
                                             @php
                                                 $model = $translation->where('locale', $locale)->first();
-                                                $class = $model->translation === $defaultTranslation && $locale !== config('translation-manager.locale.default') ? 'bg-orange-100' : '';
+                                                $class = $model->translation === $defaultTranslation && $locale !== config('translation-manager.locale.default') ? 'bg-orange-100 dark:bg-orange-300' : '';
                                                 $disabled = $locale === config('translation-manager.locale.default') || $translation->first()->group_key === 'enums-test-test-with-translation';
                                             @endphp
 

@@ -24,6 +24,7 @@
     "require-dev": {
         "orchestra/testbench": "^7.24",
         "phpunit/phpunit": "^9.6",
+        "roave/security-advisories": "dev-latest",
         "slevomat/coding-standard": "^8.8"
     },
     "autoload": {
@@ -43,6 +44,7 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true
         }
     },

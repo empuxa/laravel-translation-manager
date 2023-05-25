@@ -16,6 +16,7 @@ While the concept is heavily inspired by [barryvdh/laravel-translation-manager](
 
 However, currently there are also some disadvantages:
 - it does only read and export PHP files, no JSON
+- vendor translations are not supported
 - since all strings are on one page, big projects might have performance issues
 
 ![Overview](docs/overview.png)
@@ -77,10 +78,6 @@ composer test
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 

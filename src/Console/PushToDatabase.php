@@ -33,7 +33,8 @@ class PushToDatabase extends Command
         foreach ($files as $file) {
             $fileName = Str::before($file->getFilename(), '.');
 
-            if (! Str::endsWith('.php', $fileName)) {
+            // No support for JSON files right now
+            if ($file->getExtension() !== 'php') {
                 continue;
             }
 

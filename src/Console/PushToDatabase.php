@@ -19,13 +19,23 @@ class PushToDatabase extends Command
      */
     protected $description = 'Read local translations and push them to the database.';
 
+    /**
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     */
     public function handle(): int
     {
         $locale = config('translation-manager.locale.default');
+
         $files = File::allFiles(lang_path($locale));
+
+        $bar = $this->output->createProgressBar(count($files));
 
         foreach ($files as $file) {
             $fileName = Str::before($file->getFilename(), '.');
+
+            if (! Str::endsWith('.php', $fileName)) {
+                continue;
+            }
 
             // This is a directory
             if (! Str::is($locale, $file->getRelativePath())) {
@@ -34,7 +44,11 @@ class PushToDatabase extends Command
             }
 
             PushToDatabaseJob::dispatchSync($fileName, File::getRequire($file), $this->option('force'));
+
+            $bar->advance();
         }
+
+        $bar->finish();
 
         return self::SUCCESS;
     }

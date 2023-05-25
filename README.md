@@ -14,7 +14,7 @@ While the concept is heavily inspired by [barryvdh/laravel-translation-manager](
 - all translation strings are on one page, that's based on Tailwind CSS
 - it has (some) tests 🫣
 
-However, currently there are also some disadvantages:
+However, currently there are also some disadvantages (feel free to contribute!):
 - it does only read and export PHP files, no JSON
 - vendor translations are not supported
 - since all strings are on one page, big projects might have performance issues
@@ -54,7 +54,7 @@ To push the translations into the database, you need to run the following comman
 php artisan translation-manager:push-to-db
 ```
 
-It's now possible to edit any language string via the web interface and save them to the DB. If a language string already exists, it won't be overwritten. You can force that behavior by using the `--force` flag.
+It's now possible to edit any language string via the web interface and save them to the database. If a language string already exists, it won't be overwritten. You can force that behavior by using the `--force` flag.
 
 Before you can use the translations in your application, you need to export them to PHP files that will get stored in the `lang` folder. You can do that by running the following command:
 
@@ -66,8 +66,6 @@ php artisan translation-manager:pull-from-db
 The best way to use the translation manager in a cloud setup is to run a single server instance, where the translators can edit the translations. However, you might also want to push the translations to other environments. That's where cloud storage comes into play. 
 
 By using the `translation-manager:push-to-storage` command, you can push any lang file to the storage disk defined in the config. With the `translation-manager:pull-from-storage` command, you can then pull the translations from the storage disk.
-
-At [Wunderlease](https://wunderlease.com), we've integrated the translation manager into our CI/CD pipeline. This way, we can push the translations to our staging and production environments.
 
 ## Testing
 

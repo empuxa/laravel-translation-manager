@@ -1,8 +1,8 @@
 # Laravel Translation Manager
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/empuxa/translation-manager.svg?style=flat-square)](https://packagist.org/packages/empuxa/translation-manager)
-[![Tests](https://img.shields.io/github/actions/workflow/status/empuxa/translation-manager/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/empuxa/laravel-translation-manager/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/empuxa/translation-manager.svg?style=flat-square)](https://packagist.org/packages/empuxa/laravel-translation-manager)
+[![Tests](https://img.shields.io/github/actions/workflow/status/empuxa/translation-manager/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/empuxa/translation-manager/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/empuxa/translation-manager.svg?style=flat-square)](https://packagist.org/packages/empuxa/translation-manager)
 
 ![Banner](https://banners.beyondco.de/Translation%20Manager.png?theme=light&packageManager=composer+require&packageName=empuxa%2Ftranslation-manager&pattern=architect&style=style_1&description=&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 

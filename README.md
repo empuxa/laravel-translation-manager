@@ -23,7 +23,7 @@ However, currently there are also some disadvantages (feel free to contribute!):
 
 ## Installation
 
-This package requires Laravel 9+.
+This package requires Laravel 9.33+.
 You can install the package via composer:
 
 ```bash

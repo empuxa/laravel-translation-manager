@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/empuxa/laravel-translation-manager/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/empuxa/laravel-translation-manager/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/empuxa/laravel-translation-manager.svg?style=flat-square)](https://packagist.org/packages/empuxa/laravel-translation-manager)
 
-![Banner](https://banners.beyondco.de/Translation%20Manager.png?theme=light&packageManager=composer+require&packageName=empuxa%2Ftranslation-manager&pattern=architect&style=style_1&description=&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
+![Banner](https://banners.beyondco.de/Laravel%20Translation%20Manager.png?theme=light&packageManager=composer+require&packageName=empuxa%2Flaravel-translation-manager&pattern=architect&style=style_1&description=&md=1&showWatermark=0&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
 
 This package provides a web interface to manage your Laravel application translations.
 While the concept is heavily inspired by [barryvdh/laravel-translation-manager](https://github.com/barryvdh/laravel-translation-manager), this package is a complete rewrite with a different approach to provide a better non-developer user experience:

@@ -12,4 +12,11 @@ class TestCase extends \Orchestra\Testbench\TestCase
             TranslationManagerServiceProvider::class,
         ];
     }
+
+    protected function defineDatabaseMigrations()
+    {
+        $this->loadLaravelMigrations();
+
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+    }
 }

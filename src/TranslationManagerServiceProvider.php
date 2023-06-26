@@ -18,6 +18,7 @@ class TranslationManagerServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
+            ->hasMigration('create_translations_table')
             ->hasRoute('web')
             ->hasCommands([
                 PushToStorage::class,
@@ -25,7 +26,5 @@ class TranslationManagerServiceProvider extends PackageServiceProvider
                 PullFromDatabase::class,
                 PullFromStorage::class,
             ]);
-
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }

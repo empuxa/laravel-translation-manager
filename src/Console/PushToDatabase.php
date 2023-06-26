@@ -19,9 +19,6 @@ class PushToDatabase extends Command
      */
     protected $description = 'Read local translations and push them to the database.';
 
-    /**
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-     */
     public function handle(): int
     {
         $locale = config('translation-manager.locale.default');

@@ -9,7 +9,7 @@ use Empuxa\TranslationManager\Console\PushToStorage;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ServiceProvider extends PackageServiceProvider
+class TranslationManagerServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

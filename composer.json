@@ -28,6 +28,7 @@
         "spatie/laravel-package-tools": "^1.0"
     },
     "require-dev": {
+        "laravel/pint": "^1.10",
         "orchestra/testbench": "^7.0|^8.0",
         "phpunit/phpunit": "^9.6",
         "roave/security-advisories": "dev-latest",
@@ -44,6 +45,7 @@
         }
     },
     "scripts": {
+        "pint": "./vendor/bin/pint",
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage"
     },

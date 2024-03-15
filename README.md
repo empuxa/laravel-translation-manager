@@ -33,7 +33,7 @@ composer require empuxa/laravel-translation-manager
 Afterward, copy the vendor files:
 
 ```bash
-php artisan vendor:publish --provider="Empuxa\TranslationManager\ServiceProvider"
+php artisan vendor:publish --provider="Empuxa\TranslationManager\TranslationManagerServiceProvider"
 ```
 
 Finally, run the migrations:

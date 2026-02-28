@@ -1,3 +1,5 @@
+> This package will not receive any future updates. Who needs a manual translation manager when AI can do anything? ¯\_(ツ)_/¯
+
 # Laravel Translation Manager
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/empuxa/laravel-translation-manager.svg?style=flat-square)](https://packagist.org/packages/empuxa/laravel-translation-manager)
